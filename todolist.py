@@ -30,10 +30,22 @@ while True:
         continue
 
     elif choice == "2":
-        # ADD TASK (we'll implement next)
-        print("Add task selected (Step 4 will implement this).")
-        input("\nPress Enter to return to the menu...")
-        continue
+        # ADD TASK
+        print("Add task selected.")
+        new_task = input("Enter a new task: ").strip()
+        if not new_task:
+            print("Task cannot be empty.")
+            input("\nPress Enter to return to the menu...")
+            continue
+        # add to in-memory list
+        tasks.append(new_task) #this appends anything the user writes to the in-memory tasks list
+        
+        #append to file so it persists
+        with open(TASKS_FILE, "a", encoding="utf-8") as f: # this opens the tasks.txt file. "a" is append mode, which creates the file if non-existent and adds new content to the file
+            f.write(new_task + "\n") # this writes the task text into the file. Forgetting + "\n" ensures each task goes on a new line in file
+            print("Task added")
+            input("\nPress Enter to return to the menu...")
+            continue
 
     elif choice == "3":
         # DELETE TASK (we'll implement next)
@@ -46,4 +58,4 @@ while True:
         # no pause needed here, but you can add one if you like
         continue
     
- 
+ # 2. Add Task
