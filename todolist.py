@@ -49,7 +49,16 @@ while True:
 
     elif choice == "3":
         # DELETE TASK (we'll implement next)
-        print("Delete task selected (Step 5 will implement this).")
+        print("Delete task selected")
+        if not tasks:
+            print("No tasks to delete.")
+            continue
+        #This is to show numbered list
+        print("\nYour Tasks:")
+        for i, task in enumerate(tasks, start=1):
+            print(f"{i}) {task}")
+        
+        
         input("\nPress Enter to return to the menu...")
         continue
 
@@ -58,4 +67,4 @@ while True:
         # no pause needed here, but you can add one if you like
         continue
     
- # 2. Add Task
+ 
