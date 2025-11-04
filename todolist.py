@@ -52,15 +52,24 @@ while True:
         print("Delete task selected")
         if not tasks:
             print("No tasks to delete.")
+            input("\nPress enter to return to the menu...")
             continue
-        #This is to show numbered list
+        #This is to show numbered list of tasks
         print("\nYour Tasks:")
-        for i, task in enumerate(tasks, start=1):
+        for i, task in enumerate(tasks, start=1): # goes through each item in a collection (tasks), one by one.
             print(f"{i}) {task}")
+        try:
+            idx = int(input("Enter the number of the task to delete: ").strip())
+            if not (1 <= idx <= len(tasks)):
+                print("Please enter a number from the list.")
+                input("\nPress Enter to return to the menu...")
+                continue
+        except ValueError:
+             print("Please enter a valid integer.")
+             input("\nPress Enter to return to the menu...")
+             continue
         
         
-        input("\nPress Enter to return to the menu...")
-        continue
 
     else:
         print("Please choose a number between 1 and 4.")
