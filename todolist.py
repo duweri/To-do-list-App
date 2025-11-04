@@ -69,7 +69,17 @@ while True:
              input("\nPress Enter to return to the menu...")
              continue
         
+        #Delete from memory 
+        removed = tasks.pop(idx - 1) # converts the user’s 1-based input into Python’s 0-based index
         
+        # Rewrite file with remaining tasks
+        with open(TASKS_FILE, "w", encoding="utf-8") as f: # "w" = write/overwrite. This is to delete because we want to replace the file with the updated list rathen than append
+            for t in tasks: # t is the current task string e.g. "buy mlik"
+             f.write(t + "\n")
+             
+        print(f"Deleted: {removed}")
+        input("\nPress Enter to return to the menu...")
+        continue
 
     else:
         print("Please choose a number between 1 and 4.")
